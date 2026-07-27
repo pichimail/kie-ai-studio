@@ -1,0 +1,47 @@
+generator client {
+  provider = "prisma-client-js"
+}
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+model User {
+  id           String         @id @default(cuid())
+  email        String         @unique
+  name         String?
+  credits      Int            @default(150)
+  generations  Generation[]
+  creditLedger CreditLedger[]
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+}
+model Generation {
+  id             String   @id @default(cuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  taskId         String   @unique
+  model          String
+  prompt         String
+  negativePrompt String?
+  mode           String?
+  aspectRatio    String
+  duration       Int      @default(6)
+  resolution     String   @default("720p")
+  status         String   @default("PENDING")
+  inputUrls      String[]
+  outputUrls     String[]
+  creditCost     Float
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  @@index([userId, createdAt])
+  @@index([status])
+}
+model CreditLedger {
+  id        String   @id @default(cuid())
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  amount    Float
+  reason    String
+  createdAt DateTime @default(now())
+  @@index([userId, createdAt])
+}
