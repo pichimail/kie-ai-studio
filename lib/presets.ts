@@ -1,1 +1,137 @@
-PLACEHOLDER
+export type PresetCategory =
+  | "Text-to-Video"
+  | "Image-to-Video"
+  | "Motion Control"
+  | "Video-to-Video"
+  | "Video Edit & Extend"
+  | "Reference-to-Video"
+  | "Text-to-Image"
+  | "Product Ads";
+
+export interface Preset {
+  id: number;
+  category: PresetCategory;
+  prompt: string;
+  recommendedModel?: string;
+  aspectRatio?: string;
+  duration?: string;
+  mode?: string;
+}
+
+export const PRESET_CATEGORIES: PresetCategory[] = [
+  "Text-to-Video",
+  "Image-to-Video",
+  "Motion Control",
+  "Video-to-Video",
+  "Video Edit & Extend",
+  "Reference-to-Video",
+  "Text-to-Image",
+  "Product Ads",
+];
+
+export const PRESETS: Preset[] = [
+  { id: 1, category: "Text-to-Video", prompt: "Cinematic slow-motion shot of an astronaut walking through a glowing bioluminescent crystal forest on an alien planet, native ambient humming sound, 8k resolution, ultra-detailed.", aspectRatio: "16:9", duration: "10", mode: "normal" },
+  { id: 2, category: "Text-to-Video", prompt: "Hyper-realistic drone sweep over ancient moss-covered ruins in a misty tropical rainforest at sunrise, 30-second smooth continuous camera flight.", aspectRatio: "16:9", duration: "30", mode: "normal" },
+  { id: 3, category: "Text-to-Video", prompt: "A cybernetic samurai standing on a rain-slicked Tokyo rooftop at night, neon lights reflecting off wet armor, wind blowing cherry blossoms, synchronized audio of rain and distant synthwave music.", aspectRatio: "9:16", duration: "10", mode: "fun" },
+  { id: 4, category: "Text-to-Video", prompt: "An ornate steampunk clockwork dragonfly hovering over a blooming brass rose, gears spinning seamlessly, soft macro depth of field.", aspectRatio: "1:1", duration: "6", mode: "normal" },
+  { id: 5, category: "Text-to-Video", prompt: "Close-up portrait of an elderly sea captain with a weather-beaten face telling a story, realistic lip-sync and voice, soft warm cabin lighting.", aspectRatio: "2:3", duration: "10", mode: "normal" },
+  { id: 6, category: "Text-to-Video", prompt: "Volcanic eruption on an icy planet where blue lava flows over turquoise glacier cliffs, thunderous explosion sounds, photorealistic visual physics.", aspectRatio: "16:9", duration: "15", mode: "spicy" },
+  { id: 7, category: "Text-to-Video", prompt: "A majestic golden eagle swooping down through a canyon to catch a glowing magical orb, dramatic tracking camera movement.", aspectRatio: "16:9", duration: "10", mode: "normal" },
+  { id: 8, category: "Text-to-Video", prompt: "A futuristic hover-train speeding through a translucent underwater glass tunnel surrounded by bioluminescent whales.", aspectRatio: "16:9", duration: "15", mode: "fun" },
+  { id: 9, category: "Text-to-Video", prompt: "A cozy coffee shop on a rainy afternoon in Paris, steam rising from a porcelain cup, jazz piano playing softly in the background.", aspectRatio: "3:2", duration: "10", mode: "normal" },
+  { id: 10, category: "Text-to-Video", prompt: "An intricate origami dragon coming to life, unfolding its paper wings and breathing flickering paper flames, stop-motion animation style.", aspectRatio: "1:1", duration: "6", mode: "fun" },
+  { id: 11, category: "Text-to-Video", prompt: "Macro shot of a drop of water falling into liquid gold, creating perfectly symmetrical concentric ripples in 240fps slow motion.", aspectRatio: "1:1", duration: "6", mode: "normal" },
+  { id: 12, category: "Text-to-Video", prompt: "A Venetian masquerade ball inside a grand gilded ballroom, dancers swirling in silk gowns under flickering crystal chandeliers.", aspectRatio: "16:9", duration: "15", mode: "normal" },
+  { id: 13, category: "Text-to-Video", prompt: "A lone wolf standing on a snow-covered mountain peak howling at a shimmering northern lights sky, atmospheric audio.", aspectRatio: "16:9", duration: "10", mode: "normal" },
+  { id: 14, category: "Image-to-Video", prompt: "Start: A withered oak tree in winter. End: The same oak tree bursting into vibrant green summer leaves, smooth 10-second seasonal morph.", recommendedModel: "grok-imagine/image-to-video", duration: "10" },
+  { id: 15, category: "Image-to-Video", prompt: "Start: A sketch of a futuristic sports car on blueprint paper. End: A real 3D sports car roaring down a desert highway.", recommendedModel: "grok-imagine/image-to-video", duration: "10" },
+  { id: 16, category: "Image-to-Video", prompt: "@image1 young female warrior in leather armor transforms into a glowing ethereal celestial deity.", recommendedModel: "grok-imagine/image-to-video", duration: "10", mode: "spicy" },
+  { id: 17, category: "Image-to-Video", prompt: "Start: A calm ocean shoreline at sunset. End: A massive tidal wave rising under a dark stormy night sky.", recommendedModel: "grok-imagine/image-to-video", duration: "10" },
+  { id: 18, category: "Image-to-Video", prompt: "Start: A closed caterpillar cocoon hanging from a branch. End: A colorful monarch butterfly spreading its wings and flying away.", recommendedModel: "grok-imagine/image-to-video", duration: "6" },
+  { id: 19, category: "Image-to-Video", prompt: "Start: A dark empty stage with a single spotlight. End: A full rock band performing with fireworks and crowd cheering.", recommendedModel: "grok-imagine/image-to-video", duration: "15" },
+  { id: 20, category: "Image-to-Video", prompt: "Start: An antique pocket watch lying on velvet. End: The watch dissolving into floating golden dust particles.", recommendedModel: "grok-imagine/image-to-video", duration: "6" },
+  { id: 21, category: "Image-to-Video", prompt: "Start: A dormant volcano beneath stars. End: An active eruption spewing glowing red magma into the night sky.", recommendedModel: "grok-imagine/image-to-video", duration: "10" },
+  { id: 22, category: "Image-to-Video", prompt: "Start: A quiet medieval village square. End: The same square bustling with a lively medieval festival market.", recommendedModel: "grok-imagine/image-to-video", duration: "15" },
+  { id: 23, category: "Image-to-Video", prompt: "Start: A glass cube filled with smoke. End: The glass shattering into thousands of floating crystal shards.", recommendedModel: "grok-imagine/image-to-video", duration: "6" },
+  { id: 24, category: "Image-to-Video", prompt: "Start: A close-up of a human eye. End: The iris zooming infinitely into a spinning spiral galaxy.", recommendedModel: "grok-imagine/image-to-video", duration: "10" },
+  { id: 25, category: "Image-to-Video", prompt: "Start: A seedling pushing through dark soil. End: A blooming red rose covered in morning dew drops.", recommendedModel: "grok-imagine/image-to-video", duration: "10" },
+  { id: 26, category: "Image-to-Video", prompt: "Start: A quiet snowy mountain lodge at dusk. End: The lodge glowing warmly with smoke rising from chimney under a starry night.", recommendedModel: "grok-imagine/image-to-video", duration: "10" },
+  { id: 27, category: "Motion Control", prompt: "Pan Right: Fast tracking shot following a neon-lit cyberpunk motorcycle weaving through heavy freeway traffic at night, motion strength 8.", aspectRatio: "16:9", duration: "10" },
+  { id: 28, category: "Motion Control", prompt: "Zoom In: Slow dramatic push-in on an ancient stone idol's eyes in a dark temple as they suddenly ignite with blue fire, motion strength 5.", aspectRatio: "2:3", duration: "6" },
+  { id: 29, category: "Motion Control", prompt: "Tilt Up: Sweeping camera movement from a knight's iron boots up to his towering crest helm overlooking a medieval battle line.", aspectRatio: "9:16", duration: "10" },
+  { id: 30, category: "Motion Control", prompt: "Roll: Continuous 360-degree Dutch angle roll rotating around a floating astronaut untethered in deep space.", aspectRatio: "1:1", duration: "10" },
+  { id: 31, category: "Motion Control", prompt: "Pan Left: Smooth lateral tracking across a vibrant barrier reef filled with clownfish, sea anemones, and dappled sunlight.", aspectRatio: "16:9", duration: "15" },
+  { id: 32, category: "Motion Control", prompt: "Zoom Out: Rapid pull-back from a single drop of dew on a blade of grass to reveal an expansive endless emerald meadow.", aspectRatio: "16:9", duration: "6" },
+  { id: 33, category: "Motion Control", prompt: "Tilt Down: Descending camera movement from stormy clouds down to a lighthouse battered by huge crashing ocean waves.", aspectRatio: "9:16", duration: "10" },
+  { id: 34, category: "Motion Control", prompt: "Motion Path: Curve around a soaring red dragon as it loops through floating island sky cliffs.", aspectRatio: "16:9", duration: "15", mode: "spicy" },
+  { id: 35, category: "Motion Control", prompt: "Zoom In: Macro zoom into a vinyl record needle riding the groove of a spinning vintage record, dust motes dancing in sunlight.", aspectRatio: "1:1", duration: "6" },
+  { id: 36, category: "Motion Control", prompt: "Pan Right: Cinematic whip pan from a duel runner at a starting line to the green signal light dropping.", aspectRatio: "16:9", duration: "6" },
+  { id: 37, category: "Motion Control", prompt: "Tilt Up: Ascending view along the glass facade of a 100-story supertall skyscraper reflecting a purple sunset.", aspectRatio: "9:16", duration: "10" },
+  { id: 38, category: "Motion Control", prompt: "Roll: Barrel roll camera perspective from inside the cockpit of a fighter jet diving through cloud canyons.", aspectRatio: "16:9", duration: "10", mode: "fun" },
+  { id: 39, category: "Motion Control", prompt: "Zoom Out: Revealing a tiny glowing cabin inside a giant glass snow globe held by a child's hand.", aspectRatio: "1:1", duration: "6" },
+  { id: 40, category: "Video-to-Video", prompt: "Transform source video into an anime masterpiece style by Studio Ghibli, hand-drawn pastel colors, lush animated foliage." },
+  { id: 41, category: "Video-to-Video", prompt: "Convert footage into a gritty 1980s VHS dark synthwave aesthetic with scan lines, chromatic aberration, and neon pink glows." },
+  { id: 42, category: "Video-to-Video", prompt: "Style transfer to 3D Claymation animation style, textured plasticine models with subtle stop-motion finger marks." },
+  { id: 43, category: "Video-to-Video", prompt: "Reimagine the input clip as a 1920s black-and-white silent film with film grain, flickering lights, and vignette." },
+  { id: 44, category: "Video-to-Video", prompt: "Turn source video into a hyper-futuristic holographic projection with blue scan lines and glitch digital artifacts." },
+  { id: 45, category: "Video-to-Video", prompt: "Stylize video into a Renaissance oil painting with heavy impasto brushstrokes, chiaroscuro lighting, and golden tones." },
+  { id: 46, category: "Video-to-Video", prompt: "Transform input into a comic book art style with bold black ink outlines, halftone dot shading, and dynamic pop art colors." },
+  { id: 47, category: "Video-to-Video", prompt: "Convert video into a glass mosaic artwork where every element glistens like stained glass in cathedral light." },
+  { id: 48, category: "Video-to-Video", prompt: "Reimagine source footage as an underwater scene with caustic light reflections, floating bubbles, and gentle wavy distortion." },
+  { id: 49, category: "Video-to-Video", prompt: "Transform clip into an origami paper craft aesthetic where all subjects are constructed from folded textured paper." },
+  { id: 50, category: "Video-to-Video", prompt: "Style transfer into a vibrant cyberpunk neon line-art animation glowing against pitch black backgrounds." },
+  { id: 51, category: "Video-to-Video", prompt: "Convert live-action video into a photorealistic Unreal Engine 5 render with ray-traced reflections and volumetric fog." },
+  { id: 52, category: "Video-to-Video", prompt: "Reimagine input video as a dark gothic ink-wash drawing with flowing charcoal dust and dramatic high contrast." },
+  { id: 53, category: "Video Edit & Extend", prompt: "Extend video by 15s: Continue the astronaut's walk across the ridge, revealing a colossal ancient alien citadel in the distance.", duration: "15" },
+  { id: 54, category: "Video Edit & Extend", prompt: "Video Edit: Add glowing magical runes floating around the wizard's staff while keeping character motion unchanged." },
+  { id: 55, category: "Video Edit & Extend", prompt: "Extend video by 20s: The hover-car lands on a floating platform, the doors wing open, and a character steps out.", duration: "20" },
+  { id: 56, category: "Video Edit & Extend", prompt: "Video Edit: Change the daytime sun background to a stormy night sky with frequent lightning strikes." },
+  { id: 57, category: "Video Edit & Extend", prompt: "Extend video by 10s: The blooming flower fully opens, attracting a hovering hummingbird that drinks nectar.", duration: "10" },
+  { id: 58, category: "Video Edit & Extend", prompt: "Video Edit: Replace the ordinary sword in the knight's hand with a flaming sword emitting sparks." },
+  { id: 59, category: "Video Edit & Extend", prompt: "Extend video by 24s: The boat sails out of the harbor and enters a mysterious thick fog bank with glowing lanterns.", duration: "24" },
+  { id: 60, category: "Video Edit & Extend", prompt: "Video Edit: Add a gentle snowfall falling across the entire scene while preserving character facial expressions." },
+  { id: 61, category: "Video Edit & Extend", prompt: "Extend video by 15s: The dancer finishes her pirouette and takes a dramatic bow as stage curtains close.", duration: "15" },
+  { id: 62, category: "Video Edit & Extend", prompt: "Video Edit: Change the character's clothing from casual jacket to a futuristic high-tech suit of armor." },
+  { id: 63, category: "Video Edit & Extend", prompt: "Extend video by 30s: The drone continues climbing past the cloud layer to reveal a breathtaking view of the sunset above clouds.", duration: "30" },
+  { id: 64, category: "Video Edit & Extend", prompt: "Video Edit: Add swimming tropical fish floating through the air around the room as if in an enchanted aquarium." },
+  { id: 65, category: "Video Edit & Extend", prompt: "Extend video by 12s: The runner crosses the finish line, raises their arms in triumph, and is surrounded by cheering crowds.", duration: "12" },
+  { id: 66, category: "Reference-to-Video", prompt: "Using @image1 as character reference, generate a scene of the character walking through a medieval marketplace talking to a merchant.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 67, category: "Reference-to-Video", prompt: "Keep character facial structure from @image1 consistent: The hero sits inside a spacecraft cockpit checking flight controls.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 68, category: "Reference-to-Video", prompt: "Reference @image1 for subject appearance: The female character runs through a rainy forest looking back over her shoulder in fear.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 69, category: "Reference-to-Video", prompt: "Maintain 100% visual consistency with @image1: The character delivers an emotional speech on a balcony, realistic speech audio.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 70, category: "Reference-to-Video", prompt: "Character reference @image1: The warrior sits by a campfire at night sharpening a dagger, flickering firelight on face.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 71, category: "Reference-to-Video", prompt: "Use subject from @image1: Character walking down a red carpet event surrounded by flashing photographer cameras.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 72, category: "Reference-to-Video", prompt: "Consistent character from @image1: The detective stands in a foggy alleyway lighting a pipe under a streetlight.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 73, category: "Reference-to-Video", prompt: "Keep exact face from @image1: Character laughing joyfully while riding a carousel at a illuminated night carnival.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 74, category: "Reference-to-Video", prompt: "Reference character @image1: The scientist looking intently into a glowing microscope in a dark high-tech lab.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 75, category: "Reference-to-Video", prompt: "Consistent subject @image1: Character leaning against a vintage red convertible parked along a coastal highway.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 76, category: "Reference-to-Video", prompt: "Use model from @image1: Character wearing a haute couture velvet gown walking down a fashion runway.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 77, category: "Reference-to-Video", prompt: "Keep character features from @image1: The pilot putting on flight goggles and adjusting leather helmet.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 78, category: "Reference-to-Video", prompt: "Reference character @image1: Character meditating peacefully floating inches above a wooden temple floor.", recommendedModel: "grok-imagine/image-to-video" },
+  { id: 79, category: "Text-to-Image", prompt: "Photorealistic 8k portrait of an old clockmaker with magnifying goggles examining a tiny glowing watch mechanism, cinematic lighting.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "2:3" },
+  { id: 80, category: "Text-to-Image", prompt: "Commercial studio photograph of a luxury frosted glass perfume bottle on a wet black obsidian stone, water droplets, soft rim light.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "1:1" },
+  { id: 81, category: "Text-to-Image", prompt: "A surreal floating island with a classical white marble temple, cascading waterfalls dropping into endless clouds, golden hour light.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "16:9" },
+  { id: 82, category: "Text-to-Image", prompt: "Architectural photo of a modern minimalist villa built over a forest waterfall, cantilevered concrete decks, warm interior glow.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "16:9" },
+  { id: 83, category: "Text-to-Image", prompt: "Hyper-detailed macro photo of a peacock feather with rainbow iridescent colors and sparkling microscopic dew drops.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "1:1" },
+  { id: 84, category: "Text-to-Image", prompt: "A dramatic culinary photograph of a gourmet burger with melting cheese, crispy bacon, and fresh lettuce, flying sesame seeds.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "1:1" },
+  { id: 85, category: "Text-to-Image", prompt: "An mystical owl with glowing rune-carved feathers perched on an ancient spellbook in a dark mahogany library.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "2:3" },
+  { id: 86, category: "Text-to-Image", prompt: "An editorial fashion portrait of a model wearing a futuristic dress made of woven optical fibers glowing in electric blue.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "2:3" },
+  { id: 87, category: "Text-to-Image", prompt: "A majestic snow leopard crouching on a craggy ice peak during a blizzard, intense yellow eyes, hyper-photorealistic fur texture.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "16:9" },
+  { id: 88, category: "Text-to-Image", prompt: "A vintage 1950s diner at night in the desert with a neon sign glowing 'Open 24 Hours', wet pavement reflections.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "16:9" },
+  { id: 89, category: "Text-to-Image", prompt: "A vibrant Japanese ramen bowl with steaming broth, sliced pork belly, soft-boiled egg, and green onions, top-down view.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "1:1" },
+  { id: 90, category: "Text-to-Image", prompt: "An abstract 3D render of flowing liquid silk in iridescent metallic pastel colors, soft studio lighting, glassmorphism.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "1:1" },
+  { id: 91, category: "Text-to-Image", prompt: "A cozy rainy night window looking out over a neon-lit city street, condensation droplets on glass, warm indoor bokeh.", recommendedModel: "grok-imagine/text-to-image", aspectRatio: "3:2" },
+  { id: 92, category: "Product Ads", prompt: "30-second commercial for a premium wireless headphone: Sleek silver headphones hovering in dark space, turning slowly while glowing audio waves ripple around them.", duration: "30", aspectRatio: "16:9" },
+  { id: 93, category: "Product Ads", prompt: "Product Ad for an energy drink: Ice-cold aluminum can exploding out of crushed ice and splash of tropical fruit juice, high energy audio soundtrack.", duration: "10", aspectRatio: "9:16" },
+  { id: 94, category: "Product Ads", prompt: "Luxury watch commercial: Macro shot of gold gears meshing together, panning up to reveal a stunning chronograph watch on a leather strap.", duration: "15", aspectRatio: "1:1" },
+  { id: 95, category: "Product Ads", prompt: "Sneaker ad: A high-tech running shoe assembling itself in mid-air from individual mesh, rubber, and air-cushion components.", duration: "10", aspectRatio: "1:1" },
+  { id: 96, category: "Product Ads", prompt: "Skincare product video: Elegant glass dropper dispensing a single golden oil droplet into a pool of silky smooth cream, soft natural light.", duration: "6", aspectRatio: "1:1" },
+  { id: 97, category: "Product Ads", prompt: "Electric vehicle commercial: Smooth tracking shot of a futuristic matte-black EV gliding quietly along a scenic mountain coastal highway at sunset.", duration: "15", aspectRatio: "16:9" },
+  { id: 98, category: "Product Ads", prompt: "Smartphone launch video: Ultra-thin smartphone spinning in a dark studio, highlighting its titanium frame and edge-to-edge curved screen.", duration: "10", aspectRatio: "9:16" },
+  { id: 99, category: "Product Ads", prompt: "Coffee brand commercial: Roasted coffee beans falling in slow motion through warm light into a stainless steel grinder.", duration: "6", aspectRatio: "1:1" },
+  { id: 100, category: "Product Ads", prompt: "Organic juice ad: Fresh oranges, mangoes, and passionfruit slicing open in mid-air surrounded by a vortex of fresh juice splashes.", duration: "10", aspectRatio: "1:1" },
+  { id: 101, category: "Product Ads", prompt: "Perfume commercial: A mist of golden fragrance spraying across dark silk fabric in super slow-motion with floating flower petals.", duration: "10", aspectRatio: "9:16" },
+  { id: 102, category: "Product Ads", prompt: "Gaming laptop ad: Sleek dark laptop opening up, RGB keyboard lighting up in a wave pattern, revealing a glowing 3D game scene on screen.", duration: "10", aspectRatio: "16:9" },
+  { id: 103, category: "Product Ads", prompt: "Sunglasses brand video: Model putting on stylish polarized sunglasses on a yacht, lens reflecting a sunny tropical beach.", duration: "6", aspectRatio: "16:9" },
+  { id: 104, category: "Product Ads", prompt: "Smartwatch fitness ad: Close-up of smartwatch screen displaying glowing heart rate metrics while a runner sprints along a misty trail.", duration: "10", aspectRatio: "9:16" },
+];
